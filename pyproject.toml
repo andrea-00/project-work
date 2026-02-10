@@ -1,0 +1,89 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gold-collection-solver"
+version = "1.0.0"
+description = "A computational intelligence solver for the Gold Collection Problem"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Alberto Migliorato"},
+    {name = "Andrea Di Felice"}
+]
+requires-python = ">=3.10"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+keywords = [
+    "vehicle-routing",
+    "optimization",
+    "heuristics",
+    "metaheuristics",
+    "computational-intelligence"
+]
+dependencies = [
+    "numpy>=1.21.0",
+    "networkx>=2.6.0",
+    "scikit-learn>=1.0.0",
+    "matplotlib>=3.4.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=3.0.0",
+    "black>=22.0.0",
+    "isort>=5.10.0",
+    "mypy>=0.950",
+]
+
+[project.urls]
+Homepage = "https://github.com/albertomigliorato/gold-collection-solver"
+Documentation = "https://github.com/albertomigliorato/gold-collection-solver#readme"
+Repository = "https://github.com/albertomigliorato/gold-collection-solver"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
+
+[tool.black]
+line-length = 100
+target-version = ["py310", "py311", "py312"]
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+    | \.venv
+    | build
+    | dist
+    | __pycache__
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 100
+src_paths = ["src", "experiments", "tests"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true

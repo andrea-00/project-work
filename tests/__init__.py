@@ -1,0 +1,1 @@
+"""Unit tests for the Gold Collection Problem solver."""

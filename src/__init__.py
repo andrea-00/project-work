@@ -1,0 +1,1 @@
+"""Source code for the Gold Collection Problem solver."""

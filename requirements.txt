@@ -3,3 +3,5 @@ matplotlib>=3.5
 networkx>=2.6
 scikit-learn>=1.0
 icecream>=2.1
+openai>=1.0
+python-dotenv>=1.0
